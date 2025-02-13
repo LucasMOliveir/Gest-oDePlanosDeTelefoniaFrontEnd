@@ -40,3 +40,35 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+# Binários e compilação
+bin/
+obj/
+out/
+*.dll
+*.exe
+*.pdb
+
+# Logs e cache
+*.log
+logs/
+*.cache
+
+# Configurações de usuário
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Dependências do .NET (evita versionar pacotes instalados)
+packages/
+project.lock.json
+**/project.lock.json
+
+# Configurações do Rider e ReSharper
+*.DotSettings.user
+_ReSharper.Caches/
+
+# Diretórios de publicação
+publish/

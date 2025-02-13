@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-title>
+    <h1>Clientes</h1>
+  </mat-card-title>
+  <mat-card-subtitle>
+    Criar
+  </mat-card-subtitle>
+  <mat-card-content>
+    <div class="container">
+      <form class="form">
+          <mat-form-field class="full-width">
+            <mat-label>Nome completo</mat-label>
+            <input matInput type="text" id="nomeCompleto" name="nomeCompleto" ngModel required value="">
+          </mat-form-field>
+        
+          <mat-form-field class="full-width">
+            <mat-label>CPF</mat-label>
+            <input matInput type="text" id="cpf" name="cpf" ngModel required >
+          </mat-form-field>
+      
+          <mat-form-field class="full-width">
+            <mat-label>Telefone</mat-label>
+            <input matInput type="text" id="telefone" name="telefone" ngModel required >
+          </mat-form-field>
+      
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" id="email" name="email" ngModel required >
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" type="button" (click)="exibirMensagem()">Salvar</button>
+  
+      </form>
+  </div>
+  </mat-card-content>
+</mat-card>
+

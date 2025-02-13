@@ -1,0 +1,53 @@
+<div class="container">
+  <form class="form">
+
+    <mat-form-field class="full-width">
+      <input matInput type="text" id="nomeCompleto" name="nomeCompleto" ngModel required placeholder="Nome completo" value="">
+    </mat-form-field>
+  
+    <mat-form-field class="full-width">
+      <input matInput type="text" id="cpf" name="cpf" ngModel required placeholder="CPF">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+        <input matInput type="text" id="telefone" name="telefone" ngModel required placeholder="Telefone">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+        <input matInput type="text" id="email" name="email" ngModel required placeholder="Email">
+    </mat-form-field>
+  </form>
+  <form class="form">
+    <mat-form-field class="full-width">
+      <input matInput type="text" id="nomeCompleto" name="nomeCompleto" ngModel required placeholder="Nome completo" value="">
+    </mat-form-field>
+      
+    <mat-form-field>
+      <mat-label>Cars</mat-label>
+      <select matNativeControl required>
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+      </select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="button" (click)="exibirMensagem()">Procurar cliente</button>
+  </form>
+
+  
+</div>
+
+<div class="container">
+    <form class="form">
+      <mat-form-field class="full-width">
+        <input matInput type="text" id="nomeCompleto" name="nomeCompleto" ngModel required placeholder="Nome completo" value="">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput type="text" id="nomeCompleto" name="nomeCompleto" ngModel required placeholder="Nome completo" value="">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="button" (click)="exibirMensagem()">Associar</button>
+    </form>
+</div>

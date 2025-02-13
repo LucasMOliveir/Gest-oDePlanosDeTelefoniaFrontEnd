@@ -1,0 +1,18 @@
+:root {
+    --mat-form-field-background-color: transparent;
+  }
+
+  input {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  
+  .mat-form-field-infix {
+    background: transparent !important;
+  }
+  
+  
+  mat-form-field {
+    background: transparent !important;
+  }
+  

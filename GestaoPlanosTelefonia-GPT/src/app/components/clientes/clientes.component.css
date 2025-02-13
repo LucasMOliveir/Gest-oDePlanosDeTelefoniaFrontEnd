@@ -1,0 +1,86 @@
+.form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+  
+  .container{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  mat-form-field {
+    background: transparent !important;
+  }
+  
+  input {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  
+  .mat-form-field-infix {
+    background: transparent !important;
+  }
+  
+  :root {
+    --mat-form-field-background-color: transparent;
+  }
+  
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: rgba(0,0,0,.04);
+  }
+  
+  
+  ::ng-deep .mat-form-field .mat-input-element {
+      color: slategray;
+  }
+  ::ng-deep .mat-form-field .mat-form-field-label {
+      color: slategray!important;
+  }
+  ::ng-deep .mat-form-field .mat-form-field-underline {
+      background-color: slategray;
+  }
+  ::ng-deep .mat-form-field .mat-form-field-ripple {
+      background-color: slategray;
+  }
+  ::ng-deep .mat-form-field .mat-form-field-required-marker {
+      color: slategray;
+  }
+  
+  
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+      color: #ff884d!important;
+  }
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+      background-color: #ff884d;
+  }
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-required-marker {
+      color: #ff884d;
+  }
+  ::ng-deep .mat-form-field.mat-focused .mat-input-element {
+      color: #ff884d;
+  }
+  
+  
+  
+  ::ng-deep .mat-form-field.mat-form-field-invalid .mat-input-element {
+      color: #ff33cc;
+  }
+  ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+      color: #ff33cc!important;
+  }
+  ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker {
+      color: #ff33cc;
+  }
+  ::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+      background-color: #ff33cc;
+  }
+  

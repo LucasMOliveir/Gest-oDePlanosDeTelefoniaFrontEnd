@@ -1,3 +1,16 @@
+# Gestão de Planos Telefonicos - FrontEnd
+
+Este é o frontend da aplicação Gestão de Planos Telefonicos, desenvolvido com Angular 17+ e Angular Material.
+
+Certifique-se de ter instalado:
+
+- [Node.js](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli)
+
+# Conectando ao backEnd
+
+Este projeto está se conectando ao projeto de backend atraves da porta 7206 caso essa porta mude reconfigure atraves de src => app => services e mude todos os arquivos para sua nova porta
+
 # GestaoPlanosTelefoniaGPT
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.6.

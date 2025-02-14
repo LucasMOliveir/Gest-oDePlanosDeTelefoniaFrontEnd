@@ -1,53 +1,58 @@
-<div class="container">
-  <form class="form">
+<div class="container mt-4">
+  <h2 class="mb-3">Gerenciamento de Planos dos Clientes</h2>
 
-    <mat-form-field class="full-width">
-      <input matInput type="text" id="nomeCompleto" name="nomeCompleto" ngModel required placeholder="Nome completo" value="">
-    </mat-form-field>
+    <div class="row my-3">
+      <div class="col-md-4">
+        <label for="cliente" class="form-label">Cliente</label>
+        <select id="cliente" class="form-select" [(ngModel)]="clienteId">
+          <option selected>Selecione um cliente</option>
+          <option *ngFor="let cliente of clientes" [value]="cliente.id">
+            {{ cliente.nomeCompleto }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="plano" class="form-label">Plano</label>
+        <select id="plano" class="form-select" [(ngModel)]="planoId">
+          <option selected>Selecione um plano</option>
+          <option *ngFor="let plano of planos" [value]="plano.id">
+            {{ plano.nome }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-4 d-flex align-items-end">
+        <button type="submit" (click)="submitClientePlano()" class="btn btn-primary w-100">Adicionar</button>
+      </div>
+    </div>
   
-    <mat-form-field class="full-width">
-      <input matInput type="text" id="cpf" name="cpf" ngModel required placeholder="CPF">
-    </mat-form-field>
-
-    <mat-form-field class="full-width">
-        <input matInput type="text" id="telefone" name="telefone" ngModel required placeholder="Telefone">
-    </mat-form-field>
-
-    <mat-form-field class="full-width">
-        <input matInput type="text" id="email" name="email" ngModel required placeholder="Email">
-    </mat-form-field>
-  </form>
-  <form class="form">
-    <mat-form-field class="full-width">
-      <input matInput type="text" id="nomeCompleto" name="nomeCompleto" ngModel required placeholder="Nome completo" value="">
-    </mat-form-field>
-      
-    <mat-form-field>
-      <mat-label>Cars</mat-label>
-      <select matNativeControl required>
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </select>
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="button" (click)="exibirMensagem()">Procurar cliente</button>
-  </form>
-
-  
-</div>
-
-<div class="container">
-    <form class="form">
-      <mat-form-field class="full-width">
-        <input matInput type="text" id="nomeCompleto" name="nomeCompleto" ngModel required placeholder="Nome completo" value="">
-      </mat-form-field>
-
-      <mat-form-field class="full-width">
-        <input matInput type="text" id="nomeCompleto" name="nomeCompleto" ngModel required placeholder="Nome completo" value="">
-      </mat-form-field>
-
-      <button mat-raised-button color="primary" type="button" (click)="exibirMensagem()">Associar</button>
-    </form>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Cliente</th>
+            <th>Plano</th>
+            <th>Franquia de Dados</th>
+            <th>Minutos</th>
+            <th>Preço</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let clientePlano of clientePlanos; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ clientePlano.nomeCompleto }}</td>
+            <td>{{ clientePlano.nomePlano }}</td>
+            <td>{{ clientePlano.franquiaDados }} GB</td>
+            <td>{{ clientePlano.minutosLigacao }} min</td>
+            <td>R$ {{ clientePlano.preco?.toString().replace('.', ',')  }}</td>
+            <td>
+              <button class="btn btn-danger btn-sm" (click)="ExcluirClientePlano(clientePlano.id)">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 </div>

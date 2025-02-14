@@ -249,3 +249,5 @@ C:\Users\luke1\Documents\Projetos\Gestão de Planos de Telefonia-GPT-FrontEnd\Ge
 C:\Users\luke1\Documents\Projetos\Gestão de Planos de Telefonia-GPT-FrontEnd\GestaoDePlanosTelefonicos\GestaoDePlanosTelefonicos\obj\Debug\net8.0\GestaoDePlanosTelefonicos.pdb
 C:\Users\luke1\Documents\Projetos\Gestão de Planos de Telefonia-GPT-FrontEnd\GestaoDePlanosTelefonicos\GestaoDePlanosTelefonicos\obj\Debug\net8.0\GestaoDePlanosTelefonicos.genruntimeconfig.cache
 C:\Users\luke1\Documents\Projetos\Gestão de Planos de Telefonia-GPT-FrontEnd\GestaoDePlanosTelefonicos\GestaoDePlanosTelefonicos\obj\Debug\net8.0\ref\GestaoDePlanosTelefonicos.dll
+C:\Users\luke1\Documents\Projetos\Gestão de Planos de Telefonia-GPT-FrontEnd\GestaoDePlanosTelefonicos\GestaoDePlanosTelefonicos\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\luke1\Documents\Projetos\Gestão de Planos de Telefonia-GPT-FrontEnd\GestaoDePlanosTelefonicos\GestaoDePlanosTelefonicos\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Proxies.dll

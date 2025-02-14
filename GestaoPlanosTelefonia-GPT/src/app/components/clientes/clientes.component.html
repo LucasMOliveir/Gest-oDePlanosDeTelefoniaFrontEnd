@@ -1,37 +1,98 @@
-<mat-card>
-  <mat-card-title>
-    <h1>Clientes</h1>
-  </mat-card-title>
-  <mat-card-subtitle>
-    Criar
-  </mat-card-subtitle>
-  <mat-card-content>
-    <div class="container">
-      <form class="form">
-          <mat-form-field class="full-width">
-            <mat-label>Nome completo</mat-label>
-            <input matInput type="text" id="nomeCompleto" name="nomeCompleto" ngModel required value="">
-          </mat-form-field>
-        
-          <mat-form-field class="full-width">
-            <mat-label>CPF</mat-label>
-            <input matInput type="text" id="cpf" name="cpf" ngModel required >
-          </mat-form-field>
-      
-          <mat-form-field class="full-width">
-            <mat-label>Telefone</mat-label>
-            <input matInput type="text" id="telefone" name="telefone" ngModel required >
-          </mat-form-field>
-      
-          <mat-form-field class="full-width">
-            <mat-label>Email</mat-label>
-            <input matInput type="text" id="email" name="email" ngModel required >
-          </mat-form-field>
-  
-          <button mat-raised-button color="primary" type="button" (click)="exibirMensagem()">Salvar</button>
-  
-      </form>
+@if(!mostrarCliente){
+  <div class="row">
+    <h2 class="text-primary">Gerenciamento de Clientes</h2>
   </div>
-  </mat-card-content>
-</mat-card>
 
+  <form [formGroup]="clienteForm" (submit)="submitCliente()">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="nome" class="form-label">Nome Completo</label>
+        <input type="text" formControlName="NomeCompleto" name="nome" class="form-control" id="nome" placeholder="Digite o nome">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="cpf" class="form-label">CPF</label>
+        <input type="text" formControlName="CPF" class="form-control" id="cpf" placeholder="Digite o CPF">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="telefone" class="form-label">Telefone</label>
+        <input type="text" formControlName="Telefone" class="form-control" id="telefone" placeholder="Digite o telefone">
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" formControlName="Email" class="form-control" id="email" placeholder="Digite o e-mail">
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvar Cliente</button>
+  </form>
+
+  <hr>
+}
+
+@if(mostrarCliente){
+  <div class="editarCliente">
+    <div class="row">
+          <h3>
+            Alterar cliente
+          </h3>
+    </div>
+    <form [formGroup]="clienteFormEdicao" (submit)="salvarAlteracao()">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="nome" class="form-label">Nome Completo</label>
+          <input type="text" formControlName="NomeCompleto" name="nome" class="form-control" id="nome" placeholder="Digite o nome">
+        </div>
+    
+        <div class="col-md-6 mb-3">
+          <label for="cpf" class="form-label">CPF</label>
+          <input type="text" formControlName="CPF" class="form-control" id="cpf" placeholder="Digite o CPF">
+        </div>
+    
+        <div class="col-md-6 mb-3">
+          <label for="telefone" class="form-label">Telefone</label>
+          <input type="text" formControlName="Telefone" class="form-control" id="telefone" placeholder="Digite o telefone">
+        </div>
+    
+        <div class="col-md-6 mb-3">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" formControlName="Email" class="form-control" id="email" placeholder="Digite o e-mail">
+        </div>
+      </div>
+    </form>
+    
+    <button type="submit" (click)="salvarAlteracao()" class="btn btn-success">Salvar</button>
+    <button type="submit" (click)="cancelarEdicao()" class="btn btn-primary">Cancelar</button>
+  </div>
+}
+
+@if(!mostrarCliente){
+  <div class="divTable">
+    <h3 class="mt-4">Lista de Clientes</h3>
+    <table class="table table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Telefone</th>
+          <th>Email</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cliente of clientes">
+          <td>{{cliente.nomeCompleto}}</td>
+          <td>{{cliente.cpf}}</td>
+          <td>{{cliente.telefone}}</td>
+          <td>{{cliente.email}}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="AlterarCliente(cliente.id, cliente.nomeCompleto, cliente.cpf, cliente.telefone, cliente.email)">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="ExcluirCliente(cliente.id)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+}

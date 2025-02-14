@@ -1,26 +1,98 @@
-<div class="container">
-    <form class="form">
-        <mat-form-field class="full-width">
-          <mat-label>Nome completo</mat-label>
-          <input matInput type="text" id="PlanoNome" name="PlanoNome" ngModel required>
-        </mat-form-field>
-      
-        <mat-form-field class="full-width">
-          <mat-label>Preço</mat-label>
-          <input matInput type="text" id="Preco" name="Preco" ngModel required>
-        </mat-form-field>
-    
-        <mat-form-field class="full-width">
-          <mat-label>Franquia de Dados (GB)</mat-label>
-            <input matInput type="text" id="Franquia" name="Franquia" ngModel required>
-        </mat-form-field>
-    
-        <mat-form-field class="full-width">
-          <mat-label>Minutos de ligações</mat-label>
-            <input matInput type="text" id="MinutosDeLigacao" name="MinutosDeLigacao" ngModel required>
-        </mat-form-field>
+@if(!mostrarEdicao){
+  <div class="row">
+    <h2 class="text-primary">Gerenciamento de planos</h2>
+  </div>
+  
+  <form [formGroup]="planoForm" (submit)="submitPlano()">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="nome" class="form-label">Nome do plano</label>
+        <input type="text" formControlName="Nome" class="form-control" id="nome" placeholder="Digite o nome do plano">
+      </div>
+  
+      <div class="col-md-6 mb-3">
+        <label for="preco" class="form-label">Preço</label>
+        <input type="text" formControlName="Preco" class="form-control" id="preco" (input)="formatarPreco()" placeholder="Digite o Preço">
+      </div>
+  
+      <div class="col-md-6 mb-3">
+        <label for="franquia" class="form-label">Franquia de dados (GB)</label>
+        <input type="text" formControlName="FranquiaDados" class="form-control" id="franquia" placeholder="Franquia de dados (GB)">
+      </div>
+  
+      <div class="col-md-6 mb-3">
+        <label for="minutosDeLigacao" class="form-label">Minutos de ligação</label>
+        <input type="text" formControlName="MinutosLigacao" class="form-control" id="minutosDeLigacao" placeholder="Minutos de ligação">
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-success">Salvar Plano</button>
+  </form>
+  
+  <hr>
+}
 
-        <button mat-raised-button color="primary" type="button" (click)="exibirMensagem()">Salvar</button>
-
+@if(mostrarEdicao){
+  <div class="editarPlano">
+    <div class="row">
+      <h3>
+        Alterar plano
+      </h3>
+    </div>
+    <form [formGroup]="planoFormEdicao" (submit)="salvarAlteracao()">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="nome" class="form-label">Nome do plano</label>
+          <input type="text" formControlName="Nome" name="nome" class="form-control" id="nome" placeholder="Digite o nome">
+        </div>
+    
+        <div class="col-md-6 mb-3">
+          <label for="cpf" class="form-label">Preço</label>
+          <input type="text" formControlName="Preco" class="form-control" id="cpf" placeholder="Digite o CPF">
+        </div>
+    
+        <div class="col-md-6 mb-3">
+          <label for="telefone" class="form-label">Franquia de dados</label>
+          <input type="text" formControlName="FranquiaDados" class="form-control" id="telefone" placeholder="Digite o telefone">
+        </div>
+    
+        <div class="col-md-6 mb-3">
+          <label for="email" class="form-label">Minutos de ligações</label>
+          <input type="email" formControlName="MinutosLigacao" class="form-control" id="email" placeholder="Digite o e-mail">
+        </div>
+      </div>
     </form>
-</div>
+    
+    <button type="submit" (click)="salvarAlteracao()" class="btn btn-success">Salvar</button>
+    <button type="submit" (click)="cancelarEdicao()" class="btn btn-primary">Cancelar</button>
+  </div>
+}
+
+@if(!mostrarEdicao){
+  <div class="divTable">
+    <h3 class="mt-4">Lista de planos</h3>
+    <table class="table table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Nome do plano</th>
+          <th>Preço</th>
+          <th>Franquia de dados</th>
+          <th>Minutos de ligações</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plano of planos">
+          <td>{{plano.nome}}</td>
+          <td>{{plano.preco | currency: 'R$'}}</td>
+          <td>{{plano.franquiaDados}}</td>
+          <td>{{plano.minutosLigacao}}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="alterarPlano(plano.id, plano.nome, plano.preco, plano.franquiaDados, plano.minutosLigacao)">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="ExcluirCliente(plano.id)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+}

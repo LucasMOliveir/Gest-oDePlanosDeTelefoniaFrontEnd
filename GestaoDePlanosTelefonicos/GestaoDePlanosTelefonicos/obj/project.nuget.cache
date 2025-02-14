@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "QXERjUyaxH7fcljf9X9VZD8NY3q5O6UF4xaAAvM0/+asMTzOSeZ/vYXFi2Pl48q0AfC/HrkkVCWHKSuQF+/lpQ==",
+  "dgSpecHash": "CVF/sZkCJAbScYOh0+HpEVb7XQSjoPW5QtCHn3TAFql66I7usltS3uLW0xm/w6U2dfnoSYJEZj+hweG5sEqz4g==",
   "success": true,
   "projectFilePath": "C:\\Users\\luke1\\Documents\\Projetos\\Gestão de Planos de Telefonia-GPT-FrontEnd\\GestaoDePlanosTelefonicos\\GestaoDePlanosTelefonicos\\GestaoDePlanosTelefonicos.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\luke1\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\luke1\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\luke1\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\luke1\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -85,6 +86,7 @@
     "C:\\Users\\luke1\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.2\\microsoft.entityframeworkcore.analyzers.9.0.2.nupkg.sha512",
     "C:\\Users\\luke1\\.nuget\\packages\\microsoft.entityframeworkcore.design\\8.0.11\\microsoft.entityframeworkcore.design.8.0.11.nupkg.sha512",
     "C:\\Users\\luke1\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\9.0.2\\microsoft.entityframeworkcore.inmemory.9.0.2.nupkg.sha512",
+    "C:\\Users\\luke1\\.nuget\\packages\\microsoft.entityframeworkcore.proxies\\9.0.2\\microsoft.entityframeworkcore.proxies.9.0.2.nupkg.sha512",
     "C:\\Users\\luke1\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\8.0.11\\microsoft.entityframeworkcore.relational.8.0.11.nupkg.sha512",
     "C:\\Users\\luke1\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\8.0.11\\microsoft.entityframeworkcore.tools.8.0.11.nupkg.sha512",
     "C:\\Users\\luke1\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

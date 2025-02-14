@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using GestaoDePlanosTelefonicos.Data;
+using GestaoDePlanosTelefonicos.Data.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using GestaoDePlanosTelefonicos.Data;
 
 namespace GestaoDePlanosTelefonicos.Controllers
 {
@@ -22,10 +18,28 @@ namespace GestaoDePlanosTelefonicos.Controllers
 
         // GET: api/ClientePlano
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ClientePlano>>> GetClientePlanos()
+        public async Task<ActionResult<IEnumerable<ClientePlanoDto>>> GetClientePlanos()
         {
-            return await _context.ClientePlanos.ToListAsync();
+            var clientePlanos = await _context.ClientePlanos
+                .Include(cp => cp.Cliente)
+                .Include(cp => cp.Plano)
+                .Select(cp => new ClientePlanoDto
+                {
+                    Id = cp.Id,
+                    NomePlano = cp.Plano.Nome,
+                    Preco = cp.Plano.Preco,
+                    FranquiaDados = cp.Plano.FranquiaDados,
+                    MinutosLigacao = cp.Plano.MinutosLigacao,
+                    NomeCompleto = cp.Cliente.NomeCompleto,
+                    CPF = cp.Cliente.CPF,
+                    Telefone = cp.Cliente.Telefone,
+                    Email = cp.Cliente.Email
+                })
+                .ToListAsync();
+
+            return Ok(clientePlanos);
         }
+
 
         // GET: api/ClientePlano/5
         [HttpGet("{id}")]
@@ -75,8 +89,10 @@ namespace GestaoDePlanosTelefonicos.Controllers
         // POST: api/ClientePlano
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<ClientePlano>> PostClientePlano(ClientePlano clientePlano)
+        public async Task<ActionResult<ClientePlano>> PostClientePlano(ClientePlanoPostDto clientePlanoDto)
         {
+            var clientePlano = new ClientePlano { ClienteID = clientePlanoDto.ClienteID, PlanoID = clientePlanoDto.PlanoID };
+
             _context.ClientePlanos.Add(clientePlano);
             await _context.SaveChangesAsync();
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GestaoDePlanosTelefonicos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7364bfdaabf53ac82aadd2c48bd9f2ab45b89892")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2390ce2cc68f1e88b33a8ae44489622b37092ae")]
 [assembly: System.Reflection.AssemblyProductAttribute("GestaoDePlanosTelefonicos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GestaoDePlanosTelefonicos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

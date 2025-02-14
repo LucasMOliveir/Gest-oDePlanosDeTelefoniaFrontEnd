@@ -17,7 +17,8 @@ export class PlanosComponent {
   planoForm: FormGroup;
   planoFormEdicao: FormGroup
 
-  constructor(private planoService: PlanoService, private fp: FormBuilder, private pe: FormBuilder){
+  constructor(private planoService: PlanoService,
+    private fp: FormBuilder, private pe: FormBuilder){
     this.planoForm = this.fp.group({
       Nome: [''],
       Preco: [''],
@@ -47,7 +48,7 @@ export class PlanosComponent {
         this.carregarPlanos();
       },
       error: (erro) => {
-        console.error('Erro ao buscar clientes:', erro);
+        console.error('Erro ao buscar planos:', erro);
       }
     })
   }
@@ -74,11 +75,7 @@ export class PlanosComponent {
       }
     })
   }
-
-  exibirMensagem() {
-    console.log("teste");
-  }
-
+  
   mostrarEdicao = false;
 
   alterarPlano(id: string, nome: string, preco: number, franquia: number, minutos: number){
@@ -102,7 +99,6 @@ export class PlanosComponent {
 
     this.planoService.updatePlano(this.planoFormEdicao.value.ID, this.planoFormEdicao.value).subscribe({
       next: (dados) => {
-        console.log(dados);
         this.planos = dados;
         this.carregarPlanos();
       },
@@ -113,20 +109,28 @@ export class PlanosComponent {
   }
 
   formatarPreco() {
-    debugger;
-    let valor = this.planoForm.value.Preco || '';
+  //   //debugger;
+  //   let valor = this.planoForm.value.Preco || '';
     
-    valor = valor.replace(/[^0-9.,]/g, '');
+  //   valor = valor.replace(/[^0-9.,]/g, '');
     
-    valor = valor.replace(/\./g, ',');
+  //   valor = valor.replace(/\./g, ',');
     
-    const partes = valor.split(',');
-    if (partes.length > 2) {
-      valor = partes[0] + ',' + partes.slice(1).join('');
-    }
+  //   const partes = valor.split(',');
+  //   if (partes.length > 2) {
+  //     valor = partes[0] + ',' + partes.slice(1).join('');
+  //   }
+
+  //   this.planoForm = this.pe.group({
+  //     Preco: valor,
+  //   })
+  let valor = this.planoForm.value.Preco || '';
+  valor = valor.replace(/,/g, '.');
+  valor = valor.replace(/\.(?=\.)/g, '');
 
     this.planoForm = this.pe.group({
       Preco: valor,
     })
+
   }
 }

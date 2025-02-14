@@ -54,7 +54,6 @@ export class PlanosDeClientesComponent {
   carregarClientePlano(){
     this.clientePlanoService.getPlanoClientes().subscribe({
       next: (dados) => {
-        console.log(dados);
         this.clientePlanos = dados;        
       },
       error: (erro) => {

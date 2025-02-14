@@ -5,7 +5,6 @@
       <div class="col-md-4">
         <label for="cliente" class="form-label">Cliente</label>
         <select id="cliente" class="form-select" [(ngModel)]="clienteId">
-          <option selected>Selecione um cliente</option>
           <option *ngFor="let cliente of clientes" [value]="cliente.id">
             {{ cliente.nomeCompleto }}
           </option>
@@ -15,7 +14,6 @@
       <div class="col-md-4">
         <label for="plano" class="form-label">Plano</label>
         <select id="plano" class="form-select" [(ngModel)]="planoId">
-          <option selected>Selecione um plano</option>
           <option *ngFor="let plano of planos" [value]="plano.id">
             {{ plano.nome }}
           </option>

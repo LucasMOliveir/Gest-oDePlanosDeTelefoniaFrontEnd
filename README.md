@@ -1,3 +1,7 @@
+# Instruções de configuração
+
+-- Dentro de cada projeto há outro arquivo README com instruções mais detalhadas sobre ele
+
 # Node modules (dependências do projeto)
 
 node_modules/
